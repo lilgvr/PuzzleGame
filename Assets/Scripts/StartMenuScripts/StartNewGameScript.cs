@@ -8,6 +8,7 @@ public class StartNewGameScript : MonoBehaviour
 {
     // Frames
     public GameObject start;
+    public GameObject rules;
 
     // Buttons
     public GameObject continueButton;
@@ -15,6 +16,12 @@ public class StartNewGameScript : MonoBehaviour
     public void continueButtonTap()
     {
         start.SetActive(false);
+        SceneManager.LoadScene("Rules");
+    }
+
+    public void CloseRules()
+    {
+        rules.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
 }

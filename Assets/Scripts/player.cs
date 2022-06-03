@@ -18,6 +18,11 @@ public class player : MonoBehaviour
     private GameObject p2;
     private GameObject cube;
 
+    private bool movingLeft;
+    private bool movingRight;
+    private bool movingUp;
+    private bool movingDown;
+
     void Start()
     {
         p = GameObject.FindWithTag("Player");
@@ -48,28 +53,63 @@ public class player : MonoBehaviour
         {
             SceneManager.LoadScene($"Lvl2");
         }
+
+        if (movingLeft) cubeRB.velocity += moveDirection;
+
+        if (movingRight) cubeRB.velocity -= moveDirection;
+
+        if (movingUp)
+        {
+            pRB.velocity -= moveDirection;
+            p2RB.velocity -= moveDirection;
+        }
+
+        if (movingDown)
+        {
+            pRB.velocity += moveDirection;
+            p2RB.velocity += moveDirection;
+        }
+
     }
 
     public void MoveLeft()
     {
-        cubeRB.velocity += moveDirection;
+        movingLeft = true;
     }
 
     public void MoveRight()
     {
-        cubeRB.velocity -= moveDirection;
+        movingRight = true;
     }
 
     public void MoveUp()
     {
-        pRB.velocity -= moveDirection;
-        p2RB.velocity -= moveDirection;
+        movingUp = true;
     }
 
     public void MoveDown()
     {
-        pRB.velocity += moveDirection;
-        p2RB.velocity += moveDirection;
+        movingDown = true;
+    }
+
+    public void StopMoveLeft()
+    {
+        movingLeft = false;
+    }
+
+    public void StopMoveRight()
+    {
+        movingRight = false;
+    }
+
+    public void StopMoveUp()
+    {
+        movingUp =false;
+    }
+
+    public void StopMoveDown()
+    {
+        movingDown = false;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -15,6 +15,6 @@ public class StartNewGameScript : MonoBehaviour
     public void continueButtonTap()
     {
         start.SetActive(false);
-        SceneManager.LoadScene("Lvl1");
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -16,12 +16,15 @@ public class GameInterfaceScript : MonoBehaviour
     public GameObject changeSoundButton;
     public GameObject restartLevelButton;
 
+    public static string sceneName = $"Lvl1";
+    public static string lvlName;
     public Sprite soundOnSprite, soundOffSprite;
     private bool isSoundOn = true;
 
 
     public void MenuButtonTap()
     {
+        sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("Menu");
     }
 
@@ -47,5 +50,15 @@ public class GameInterfaceScript : MonoBehaviour
     public void RestartLevelButtonTap()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void pickLvl1()
+    {
+        SceneManager.LoadScene($"Lvl1");
+    }
+
+    public void pickLvl2()
+    {
+        SceneManager.LoadScene($"Lvl2");
     }
 }

@@ -21,7 +21,7 @@ public class MenuActionScript : MonoBehaviour
     public void ResumeButtonTap()
     {
         mainMenu.SetActive(false);
-        SceneManager.LoadScene($"LvL1");
+        SceneManager.LoadScene(GameInterfaceScript.sceneName);
     }
 
     public void PickLevelButtonTap()

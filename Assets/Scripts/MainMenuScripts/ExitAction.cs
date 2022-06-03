@@ -16,7 +16,7 @@ public class ExitAction : MonoBehaviour
 
     public void exitButtonTap()
     {
-        // Exit Action
+        Application.Quit();
     }
 
     public void returnButtonTap()
